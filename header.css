@@ -1,0 +1,156 @@
+/* header.css */
+
+/* Header avec dégradé */
+header {
+    background: linear-gradient(to right, #243368, #e20b17);
+    color: white;
+    padding: 10px 0;
+}
+
+/* Conteneur de la Navbar */
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Logo */
+.navbar .logo img {
+    height: 50px;
+}
+
+/* Styles pour les liens de navigation */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif; /* Ajout de la police Poppins */
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white; /* Couleur de la ligne */
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+    box-shadow: 0px 4px 5px rgba(17, 122, 139, 0.5); /* Ombre douce */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* La ligne s'étend au survol */
+}
+
+
+.nav-links a:hover {
+    color: white; /* Jaune doré au survol */
+}
+
+/* Menu hamburger */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon span,
+.menu-icon span::before,
+.menu-icon span::after {
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-icon span::before,
+.menu-icon span::after {
+    content: '';
+    position: absolute;
+}
+
+.menu-icon span::before {
+    top: -8px;
+}
+
+.menu-icon span::after {
+    top: 8px;
+}
+
+.logo img {
+    transition: transform 0.3s ease-in-out; /* Ajoute une transition fluide */
+}
+
+.logo img:hover {
+    animation: bounce 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+/* Styles pour le menu mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 200px;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    /* Activer le menu mobile */
+    #toggle-menu:checked ~ .nav-links {
+        right: 0;
+    }
+
+    /* Animation du menu icon */
+    #toggle-menu:checked + .menu-icon span {
+        background: transparent;
+    }
+
+    #toggle-menu:checked + .menu-icon span::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    #toggle-menu:checked + .menu-icon span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+}

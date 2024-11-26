@@ -1,0 +1,54 @@
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Assurer un layout global avec flexbox */
+html, body {
+    height: 100%; /* Assure que le body occupe toute la hauteur */
+    margin: 0; /* Supprime les marges par défaut */
+    display: flex;
+    flex-direction: column; /* Organise le layout en colonne */
+}
+
+
+/* Main content doit prendre tout l'espace disponible */
+#main-content {
+    flex: 1; /* Prend tout l'espace disponible entre le header et le footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrage vertical (optionnel) */
+    align-items: center; /* Centrage horizontal (optionnel) */
+}
+
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #B22222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#splash-screen.animate {
+    animation: slideUp 1s forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Pas de overflow inutile */
+body {
+    overflow: visible;
+}
